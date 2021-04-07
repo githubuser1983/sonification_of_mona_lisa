@@ -122,6 +122,10 @@ piano = s.new_part("Acoustic Bass")
 #piano = s.new_part("Concert Bass Drum")
 s.add_instrument(piano)
 
+
+def divisors(n):
+    return [k for k in range(1,n+1) if n%k==0]
+
 def play_piano(pitch,volume):
     global piano
     print("instrument:",pitch,volume)
@@ -406,7 +410,8 @@ def read_image(fn="./images/017.png_wave.jpg"):
 maxN = 17
 
 imageFN = "./image.jpg"
-nr = 67
+div = divisors(read_image(imageFN).shape[1]) # divisors of the length in y-direction of the image
+nr = sorted([ (abs(d-50),d) for d in div])[0][1] # the closest divisor to the number 50
 
 def write_images(img_folder="./img/"):
     global imageFN, nr
@@ -648,7 +653,7 @@ os.system(command)
 
 os.system("rm music.mp4")
 
-command = "ffmpeg -r " +str(60.0/tempo)+"  -pattern_type glob -i 'img/img_*.png' -i music.mp3  -acodec copy music.mp4"
+command = "ffmpeg -r " +str(tempo/(4*60.0))+"  -pattern_type glob -i 'img/img_*.png' -i music.mp3  -acodec copy music.mp4"
 print(command)
 os.system(command)
 
