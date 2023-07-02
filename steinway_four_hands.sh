@@ -1,1 +1,1 @@
-python3.6 scampDataSonification.py /usr/share/sounds/sf2/Steinway_Grand-SF4U-v1.sf2 "Mellow Steinway" "Mellow Steinway" "Mellow Steinway" "Mellow Steinway"
+python3.8 scampDataSonification.py /usr/share/sounds/sf3/MuseScore_General.sf3  "Mellow Steinway" "Mellow Steinway" "Mellow Steinway" "Mellow Steinway"

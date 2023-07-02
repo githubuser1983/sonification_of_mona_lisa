@@ -119,7 +119,7 @@ for t in tracks:
     s.add_instrument(t[0])
 
 piano = s.new_part("Acoustic Bass")
-#piano = s.new_part("Concert Bass Drum")
+piano = s.new_part("Concert Bass Drum")
 s.add_instrument(piano)
 
 
@@ -140,7 +140,7 @@ def callback_midi(midi,dt):
     elif code==128: # note off
         piano.end_note()
 
-s.register_midi_listener(port_number_or_device_name=1, callback_function=callback_midi)
+#s.register_midi_listener(port_number_or_device_name=1, callback_function=callback_midi)
 
 
 try:
